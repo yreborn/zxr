@@ -15,83 +15,93 @@ const curseTool = document.getElementById('curse');
 
 // 求饶语句
 const pleadings = [
-    "求求你放过我吧...",
-    "好痛啊！停下来！",
-    "我再也不敢了...",
-    "啊！！！救命！",
-    "我错了，我真的错了！",
-    "不要再折磨我了...",
-    "我愿意道歉！",
-    "饶了我这一次吧...",
-    "我保证以后再也不会了！",
-    "痛死了！住手！"
+    "呜呜~放过我吧...",
+    "好痛痛哦！不要啦！",
+    "人家再也不敢了...",
+    "啊呜！！救命啦！",
+    "我错啦，真的错啦！",
+    "不要再欺负人家了...",
+    "我愿意道歉啦！",
+    "饶了小人这一次吧...",
+    "我保证以后会乖乖的！",
+    "痛死啦！住手啦！"
 ];
 
 // 工具对应的求饶语句
 const toolPleadings = {
     needle: [
-        "啊！针刺好痛！",
-        "不要再扎我了！",
-        "针扎的感觉太可怕了！",
-        "我的身体被针刺穿了！"
+        "啊呜！针针好痛！",
+        "不要再扎人家啦！",
+        "针扎的感觉好可怕哦！",
+        "小人要被扎成刺猬啦！"
     ],
     shoe: [
-        "别踩我！好痛！",
-        "鞋子好重！要被踩扁了！",
-        "不要再拍打我了！",
-        "我快被踩死了！"
+        "别踩我啦！好痛痛！",
+        "鞋子好重哦！要变扁扁了！",
+        "不要再拍打小人啦！",
+        "呜呜~要被踩成饼啦！"
     ],
     fire: [
-        "好烫！我在燃烧！",
-        "救火！我要被烧死了！",
-        "火焰太可怕了！",
-        "我全身都在燃烧！"
+        "好烫烫！小人要融化啦！",
+        "救火！小人要变成烤肉啦！",
+        "火火好可怕哦！",
+        "呜呜~全身都在冒泡泡！"
     ],
     water: [
-        "救命！我要淹死了！",
-        "我不会游泳！",
-        "水太冷了！我受不了！",
-        "我快要窒息了！"
+        "救命！小人要变成落汤鸡啦！",
+        "人家不会游泳啦！",
+        "水水好冷哦！受不了啦！",
+        "呜呜~要被冲走啦！"
     ],
     curse: [
-        "诅咒的力量在吞噬我...",
-        "我感觉生命在流失...",
-        "这个诅咒太强大了！",
-        "黑暗力量在侵蚀我的灵魂！"
+        "诅咒的力量在吞噬小人...",
+        "感觉全身都麻麻的...",
+        "这个诅咒好厉害哦！",
+        "呜呜~小人要变成幽灵啦！"
     ]
 };
 
 // 小人的外观变化
 const dollVariations = [
     {
-        head: "#ddd",
-        body: "#ccc",
+        head: "#ffe0f0",
+        body: "#ffb6e6",
         headShape: "50%",
-        bodyShape: "normal"
+        bodyShape: "normal",
+        eyeColor: "#333",
+        cheekColor: "#ff9999"
     },
     {
-        head: "#d5d5d5",
-        body: "#c5c5c5",
-        headShape: "40%",
-        bodyShape: "thin"
+        head: "#e0f0ff",
+        body: "#b6e6ff",
+        headShape: "50%",
+        bodyShape: "thin",
+        eyeColor: "#333",
+        cheekColor: "#ff9999"
     },
     {
-        head: "#e0e0e0",
-        body: "#d0d0d0",
-        headShape: "45%",
-        bodyShape: "wide"
+        head: "#f0ffe0",
+        body: "#e6ffb6",
+        headShape: "50%",
+        bodyShape: "wide",
+        eyeColor: "#333",
+        cheekColor: "#ff9999"
     },
     {
-        head: "#ccc",
-        body: "#bbb",
-        headShape: "35%",
-        bodyShape: "short"
+        head: "#f0e0ff",
+        body: "#e6b6ff",
+        headShape: "50%",
+        bodyShape: "short",
+        eyeColor: "#333",
+        cheekColor: "#ff9999"
     },
     {
-        head: "#ddd",
-        body: "#ccc",
-        headShape: "55%",
-        bodyShape: "tall"
+        head: "#ffe0e0",
+        body: "#ffb6b6",
+        headShape: "50%",
+        bodyShape: "tall",
+        eyeColor: "#333",
+        cheekColor: "#ff9999"
     }
 ];
 
@@ -141,6 +151,30 @@ function generateDoll() {
     dollLegs.style.backgroundColor = variation.body;
     
     dollHead.style.borderRadius = variation.headShape;
+    
+    // 添加Q版眼睛和脸颊
+    dollHead.innerHTML = '';
+    const eyes = document.createElement('div');
+    eyes.style.position = 'absolute';
+    eyes.style.width = '10px';
+    eyes.style.height = '10px';
+    eyes.style.backgroundColor = variation.eyeColor;
+    eyes.style.borderRadius = '50%';
+    eyes.style.top = '20px';
+    eyes.style.left = '15px';
+    eyes.style.boxShadow = '25px 0 0 ' + variation.eyeColor;
+    
+    const cheeks = document.createElement('div');
+    cheeks.style.position = 'absolute';
+    cheeks.style.width = '15px';
+    cheeks.style.height = '8px';
+    cheeks.style.backgroundColor = variation.cheekColor;
+    cheeks.style.borderRadius = '50%';
+    cheeks.style.bottom = '15px';
+    cheeks.style.left = '22px';
+    
+    dollHead.appendChild(eyes);
+    dollHead.appendChild(cheeks);
     
     // 根据体型变化
     if (variation.bodyShape === 'thin') {
@@ -222,7 +256,7 @@ function showSpeech(text) {
     }, 5000);
 }
 
-// 播放诡异音效
+// 播放Q版音效
 function playCreepySound(type) {
     // 在实际应用中，这里可以添加音效播放逻辑
     // 由于这是一个纯前端演示，我们使用AudioContext API模拟一些简单的音效
@@ -238,75 +272,75 @@ function playCreepySound(type) {
     
     switch(type) {
         case 'needle':
-            oscillator.type = 'sawtooth';
-            oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
-            oscillator.frequency.linearRampToValueAtTime(880, audioContext.currentTime + 0.2);
-            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-            oscillator.start();
-            oscillator.stop(audioContext.currentTime + 0.5);
-            break;
-            
-        case 'shoe':
             oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(100, audioContext.currentTime);
-            gainNode.gain.setValueAtTime(0.7, audioContext.currentTime);
+            oscillator.frequency.setValueAtTime(880, audioContext.currentTime);
+            oscillator.frequency.linearRampToValueAtTime(1200, audioContext.currentTime + 0.1);
+            gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
             gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
             oscillator.start();
             oscillator.stop(audioContext.currentTime + 0.3);
             break;
             
+        case 'shoe':
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(300, audioContext.currentTime);
+            gainNode.gain.setValueAtTime(0.4, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 0.2);
+            break;
+            
         case 'fire':
             oscillator.type = 'triangle';
-            oscillator.frequency.setValueAtTime(350, audioContext.currentTime);
-            oscillator.frequency.linearRampToValueAtTime(100, audioContext.currentTime + 1);
-            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-            gainNode.gain.linearRampToValueAtTime(0.01, audioContext.currentTime + 1);
+            oscillator.frequency.setValueAtTime(550, audioContext.currentTime);
+            oscillator.frequency.linearRampToValueAtTime(300, audioContext.currentTime + 0.5);
+            gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+            gainNode.gain.linearRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
             oscillator.start();
-            oscillator.stop(audioContext.currentTime + 1);
+            oscillator.stop(audioContext.currentTime + 0.5);
             break;
             
         case 'water':
             oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(200, audioContext.currentTime);
-            oscillator.frequency.linearRampToValueAtTime(50, audioContext.currentTime + 0.8);
-            gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
-            gainNode.gain.linearRampToValueAtTime(0.01, audioContext.currentTime + 0.8);
+            oscillator.frequency.setValueAtTime(400, audioContext.currentTime);
+            oscillator.frequency.linearRampToValueAtTime(200, audioContext.currentTime + 0.4);
+            gainNode.gain.setValueAtTime(0.15, audioContext.currentTime);
+            gainNode.gain.linearRampToValueAtTime(0.01, audioContext.currentTime + 0.4);
             oscillator.start();
-            oscillator.stop(audioContext.currentTime + 0.8);
+            oscillator.stop(audioContext.currentTime + 0.4);
             break;
             
         case 'curse':
-            oscillator.type = 'square';
-            oscillator.frequency.setValueAtTime(80, audioContext.currentTime);
-            oscillator.frequency.linearRampToValueAtTime(120, audioContext.currentTime + 1.5);
-            gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1.5);
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
+            oscillator.frequency.linearRampToValueAtTime(400, audioContext.currentTime + 0.7);
+            gainNode.gain.setValueAtTime(0.15, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.7);
             oscillator.start();
-            oscillator.stop(audioContext.currentTime + 1.5);
+            oscillator.stop(audioContext.currentTime + 0.7);
             break;
             
         case 'generate':
-            oscillator.type = 'triangle';
-            oscillator.frequency.setValueAtTime(200, audioContext.currentTime);
-            oscillator.frequency.linearRampToValueAtTime(400, audioContext.currentTime + 0.5);
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
+            oscillator.frequency.linearRampToValueAtTime(800, audioContext.currentTime + 0.3);
             gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-            gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.2);
-            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 1);
+            gainNode.gain.linearRampToValueAtTime(0.2, audioContext.currentTime + 0.1);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
             oscillator.start();
-            oscillator.stop(audioContext.currentTime + 1);
+            oscillator.stop(audioContext.currentTime + 0.5);
             break;
     }
 }
 
-// 添加诡异的背景效果
+// 添加可爱的背景效果
 function addCreepyBackgroundEffects() {
     // 创建闪烁效果
     setInterval(() => {
         if (Math.random() < 0.05) { // 5%的概率闪烁
-            document.body.style.backgroundColor = '#300';
+            document.body.style.backgroundColor = '#ffcef9';
             setTimeout(() => {
-                document.body.style.backgroundColor = '#000';
+                document.body.style.backgroundColor = '#fce4ff';
             }, 100);
         }
     }, 2000);
