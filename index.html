@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扎小人 - 灵异版</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>扎小人 <span class="subtitle">灵异版</span></h1>
+            <div class="smoke-effect"></div>
+        </div>
+        
+        <div class="input-section">
+            <div class="name-input">
+                <label for="victim-name">输入对方名字:</label>
+                <input type="text" id="victim-name" placeholder="在此输入名字...">
+                <button id="generate-btn">生成小人</button>
+            </div>
+        </div>
+        
+        <div class="doll-section hidden" id="doll-section">
+            <div class="doll-container">
+                <div class="doll" id="doll">
+                    <div class="doll-head"></div>
+                    <div class="doll-body"></div>
+                    <div class="doll-arms"></div>
+                    <div class="doll-legs"></div>
+                    <div class="name-tag" id="name-tag"></div>
+                </div>
+                <div class="speech-bubble hidden" id="speech-bubble"></div>
+            </div>
+            
+            <div class="tools-section">
+                <h3>选择工具折磨小人</h3>
+                <div class="tools">
+                    <div class="tool" id="needle">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyLDJMMTIsMjJNOCw0TDE2LDRNNyw2TDE3LDYiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+" alt="针">
+                        <p>针刺</p>
+                    </div>
+                    <div class="tool" id="shoe">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTQsOEMyMCw4IDIwLDE2IDIwLDE2TDQsMTZaIiBmaWxsPSIjODg4IiBzdHJva2U9IiMwMDAiLz48L3N2Zz4=" alt="鞋子">
+                        <p>鞋拍</p>
+                    </div>
+                    <div class="tool" id="fire">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyLDJDOCw4IDQsMTIgNCwxOEM0LDIyIDgsMjIgMTIsMjJDMTYsMjIgMjAsMjIgMjAsMThDMjAsMTIgMTYsOCAxMiwyWiIgZmlsbD0iI2YwMCIgc3Ryb2tlPSIjMDAwIi8+PC9zdmc+" alt="火">
+                        <p>火烧</p>
+                    </div>
+                    <div class="tool" id="water">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTQsMTJDNCwxNiA4LDIwIDEyLDIwQzE2LDIwIDIwLDE2IDIwLDEyQzIwLDggMTYsNCAxMiw0QzgsNCAxMiw4IDQsMTJaIiBmaWxsPSIjMDBmIiBzdHJva2U9IiMwMDAiLz48L3N2Zz4=" alt="水">
+                        <p>水淹</p>
+                    </div>
+                    <div class="tool" id="curse">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTQsNEwyMCwyME00LDIwTDIwLDRNMTIsMkMxMiwyIDEyLDIyIDEyLDIyTTIsMTJDMiwxMiAyMiwxMiAyMiwxMiIgc3Ryb2tlPSIjZjAwIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=" alt="诅咒">
+                        <p>诅咒</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>注意：本页面仅供娱乐，请勿当真</p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #000;
+    color: #b30000;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwMCIgZmlsbC1vcGFjaXR5PSIwLjgiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIzMCIgc3Ryb2tlPSIjMzAwIiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiLz48L3N2Zz4=');
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+}
+
+/* 标题样式 */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+h1 {
+    font-size: 3rem;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    letter-spacing: 3px;
+    animation: flicker 4s infinite alternate;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    display: block;
+    margin-top: 5px;
+    color: #666;
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+        opacity: 1;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+        opacity: 0.8;
+    }
+}
+
+/* 烟雾效果 */
+.smoke-effect {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, transparent, rgba(50, 0, 0, 0.2));
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 输入区域 */
+.input-section {
+    background-color: rgba(30, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    margin-bottom: 30px;
+}
+
+.name-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 10px;
+    background-color: #111;
+    border: 1px solid #500;
+    color: #fff;
+    font-family: inherit;
+    border-radius: 5px;
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #600;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #900;
+    box-shadow: 0 0 10px #f00;
+}
+
+/* 小人区域 */
+.doll-section {
+    background-color: rgba(30, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.doll-container {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    margin: 0 auto 30px;
+}
+
+.doll {
+    position: relative;
+    width: 100px;
+    height: 200px;
+    margin: 0 auto;
+    transition: transform 0.3s;
+}
+
+.doll-head {
+    width: 50px;
+    height: 50px;
+    background-color: #ddd;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 25px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.doll-body {
+    width: 40px;
+    height: 80px;
+    background-color: #ccc;
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.doll-arms {
+    width: 80px;
+    height: 10px;
+    background-color: #ccc;
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.doll-legs {
+    width: 40px;
+    height: 60px;
+    background-color: #ccc;
+    position: absolute;
+    top: 130px;
+    left: 30px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.name-tag {
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    text-shadow: 0 0 5px #f00;
+}
+
+.speech-bubble {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 200px;
+    text-align: center;
+    animation: fadeIn 0.5s;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.7) transparent transparent;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 工具区域 */
+.tools-section {
+    width: 100%;
+    text-align: center;
+}
+
+.tools-section h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    text-shadow: 0 0 5px #f00;
+}
+
+.tools {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.tool {
+    width: 80px;
+    height: 100px;
+    background-color: rgba(50, 0, 0, 0.5);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 10px;
+}
+
+.tool:hover {
+    background-color: rgba(100, 0, 0, 0.7);
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.tool img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    filter: invert(1);
+}
+
+.tool p {
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+/* 动画效果 */
+.doll.pain {
+    animation: pain 0.5s ease-in-out;
+}
+
+@keyframes pain {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}
+
+.doll.needle-effect {
+    animation: needle 0.5s ease-in-out;
+}
+
+@keyframes needle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(0.95) rotate(5deg); }
+}
+
+.doll.shoe-effect {
+    animation: shoe 0.5s ease-in-out;
+}
+
+@keyframes shoe {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px) rotate(-5deg); }
+}
+
+.doll.fire-effect {
+    animation: fire 0.5s ease-in-out;
+}
+
+@keyframes fire {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.5) sepia(1) hue-rotate(-50deg); }
+}
+
+.doll.water-effect {
+    animation: water 0.5s ease-in-out;
+}
+
+@keyframes water {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(0.8) sepia(1) hue-rotate(170deg); }
+}
+
+.doll.curse-effect {
+    animation: curse 0.5s ease-in-out;
+}
+
+@keyframes curse {
+    0%, 100% { filter: grayscale(0); }
+    50% { filter: grayscale(1) contrast(1.5); }
+}
+
+/* 页脚 */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* 工具类 */
+.hidden {
+    display: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .tools {
+        gap: 10px;
+    }
+    
+    .tool {
+        width: 70px;
+        height: 90px;
+    }
+}
